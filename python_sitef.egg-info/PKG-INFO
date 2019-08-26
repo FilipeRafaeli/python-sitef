@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: python-sitef
+Version: 0.0.1
+Summary: Python SiTef
+Home-page: https://digisat.com.br
+Author: DevTeam Digisat
+Author-email: devteam@digisat.com.br
+License: MIT
+Description: Python library for SiTef API
+Keywords: Payment,sitef
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Provides-Extra: testing

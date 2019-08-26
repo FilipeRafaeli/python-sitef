@@ -1,0 +1,6 @@
+-r requirements.txt
+
+coveralls
+pytest==5.0.1
+pytest-cov==2.7.1
+python-decouple==3.1
