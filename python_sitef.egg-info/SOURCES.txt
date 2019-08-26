@@ -1,3 +1,4 @@
+setup.py
 python_sitef.egg-info/PKG-INFO
 python_sitef.egg-info/SOURCES.txt
 python_sitef.egg-info/dependency_links.txt
@@ -5,10 +6,12 @@ python_sitef.egg-info/not-zip-safe
 python_sitef.egg-info/requires.txt
 python_sitef.egg-info/top_level.txt
 sitef/__init__.py
+sitef/config_vars.py
 sitef/payment.py
 sitef/schedule.py
 sitef/sdk.py
 sitef/transaction.py
+sitef/utils.py
 sitef/resources/__init__.py
 sitef/resources/handler_request.py
 sitef/resources/routes/__init__.py
