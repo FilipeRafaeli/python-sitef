@@ -31,3 +31,7 @@ TRANSACTION_WITH_SCHEDULE = {
         }
     }
 }
+
+EDIT_SCHEDULE = {
+    'status': 'INA'
+}

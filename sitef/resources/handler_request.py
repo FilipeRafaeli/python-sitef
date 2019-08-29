@@ -22,6 +22,11 @@ def post(end_point, data={}):
     return validate_response(sitef_response)
 
 
+def put(end_point, data={}):
+    sitef_response = requests.put(end_point, json=data, headers=headers())
+    return validate_response(sitef_response)
+
+
 def headers():
     _headers = {
         'content-type': 'application/json',
