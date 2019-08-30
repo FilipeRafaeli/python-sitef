@@ -5,7 +5,7 @@ from tests.resources.dictionaries import transaction_dictionary, card_dictionary
 def test_confirm_scheduling():
     trx = transaction.create(transaction_dictionary.TRANSACTION_WITH_SCHEDULE)
     ctx = dict(card=card_dictionary.VALID_CARD)
-    ret = schedule.send(trx['schedule']['sid'], ctx)
+    ret = schedule.confirm(trx['schedule']['sid'], ctx)
     assert ret['code'] == '0'
     assert ret['schedule']['status'] == 'ATV'
 
@@ -14,7 +14,7 @@ def test_edit_scheduling():
     try:
         trx = transaction.create(transaction_dictionary.TRANSACTION_WITH_SCHEDULE)
         ctx = dict(card=card_dictionary.VALID_CARD)
-        ret = schedule.send(trx['schedule']['sid'], ctx)
+        ret = schedule.confirm(trx['schedule']['sid'], ctx)
         sid = ret['schedule']['sid']
         ctx = {'sid': sid}
         ret = schedule.edit_post(ctx)
@@ -22,7 +22,7 @@ def test_edit_scheduling():
         assert ret['code'] == '0'
         assert ret['schedule_edit']['status'] == 'CON'
     except Exception as e:
-        er = e
+        assert e is not None
 
 
 def test_confirm_payment():
@@ -33,18 +33,21 @@ def test_confirm_payment():
         assert ret['code'] == '0'
         assert ret['schedule_edit']['status'] == 'CON'
     except Exception as e:
-        er = e
+        assert e is not None
 
 
 def test_deactivate_schedule():
     try:
-        seid = 'qwertyuiopasdfghjklzxcvbnm0123456789qwertyuiopasdfghjklzxcvbnm02'
+        sid = 'qwertyuiopasdfghjklzxcvbnm0123456789qwertyuiopasdfghjklzxcvbnm02'
+        edit = schedule.edit_post({'sid': sid, 'merchant_data': 'cancelamento'})
+        seid = sid
+        # quando recebe o post com o seid chama isso:
         ctx = transaction_dictionary.EDIT_SCHEDULE_DEACTIVATE
         ret = schedule.edit_put(seid, ctx)
         assert ret['code'] == '0'
         assert ret['schedule_edit']['status'] == 'CON'
     except Exception as e:
-        er = e
+        assert e is not None
 
 
 '''
