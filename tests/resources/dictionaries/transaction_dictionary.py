@@ -32,6 +32,6 @@ TRANSACTION_WITH_SCHEDULE = {
     }
 }
 
-EDIT_SCHEDULE = {
+EDIT_SCHEDULE_DEACTIVATE = {
     'status': 'INA'
 }
