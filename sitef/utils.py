@@ -30,3 +30,5 @@ def retornar_codigo_bandeira_cartao(number):
         return 2
     elif re.search("^3[47]", number):  # AMEX
         return 3
+    elif re.search("^(3[01]|3[05])|(3[6]|3[8])", number):  # diners 36345600000001
+        return 33

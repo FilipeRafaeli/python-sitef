@@ -51,15 +51,15 @@ def test_deactivate_schedule():
 
 
 '''
-item 15 do manual de integração:
-Fluxo de edição de agendamento para inativação:
-1. O lojista inicia uma edição de agendamento passando o SID da transação desejada. Em caso de sucesso, o
-    e-SiTef retornará código e mensagem correspondentes.
-1.1.Durante a chamada de criação de edição de agendamento, o e-SiTef fará um POST na URL de
-    autenticidade cadastrada da loja com o SEID (identificador da edição de agendamento). A loja deve
-    então responder a esse POST com um código HTTP 200 (OK). Caso esse código não seja devolvido, o eSiTef 
-    interpretará como uma falha nessa operação e invalidará o SEID.
-2. A loja virtual prossegue o fluxo chamando o serviço de edição de agendamento, passando o SEID obtido
-    no POST de autenticidade e os dados a serem alterados. Caso nenhum problema ocorra, o e-SiTef
-    retornará uma mensagem de sucesso e os dados atualizados do agendamento.
+    item 15 do manual de integração:
+    Fluxo de edição de agendamento para inativação:
+        1. O lojista inicia uma edição de agendamento passando o SID da transação desejada. Em caso de sucesso, o
+            e-SiTef retornará código e mensagem correspondentes.
+        1.1.Durante a chamada de criação de edição de agendamento, o e-SiTef fará um POST na URL de
+            autenticidade cadastrada da loja com o SEID (identificador da edição de agendamento). A loja deve
+            então responder a esse POST com um código HTTP 200 (OK). Caso esse código não seja devolvido, o eSiTef 
+            interpretará como uma falha nessa operação e invalidará o SEID.
+        2. A loja virtual prossegue o fluxo chamando o serviço de edição de agendamento, passando o SEID obtido
+            no POST de autenticidade e os dados a serem alterados. Caso nenhum problema ocorra, o e-SiTef
+            retornará uma mensagem de sucesso e os dados atualizados do agendamento.
 '''
