@@ -18,12 +18,12 @@ def authentication_key(merchant_id=None, merchant_key=None):
 
 
 def post(end_point, data={}):
-    sitef_response = requests.post(end_point, json=data, headers=headers())
+    sitef_response = requests.post(end_point, json=data, headers=headers(), timeout=25)
     return validate_response(sitef_response)
 
 
 def put(end_point, data={}):
-    sitef_response = requests.put(end_point, json=data, headers=headers())
+    sitef_response = requests.put(end_point, json=data, headers=headers(), timeout=25)
     return validate_response(sitef_response)
 
 
