@@ -7,4 +7,4 @@ def create(dictionary):
 
 
 def check(nit):
-    return handler_request.post(transaction_routes.CHECK_TRANSACTION_URL.format(nit))
+    return handler_request.get(transaction_routes.CHECK_TRANSACTION_URL.format(nit))

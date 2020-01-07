@@ -7,7 +7,7 @@ def validate_response(sitef_response):
     if 200 <= sitef_response.status_code < 300:
         return sitef_response.json()
     else:
-        return error(sitef_response.json())
+        return error(sitef_response)
 
 
 def authentication_key(merchant_id=None, merchant_key=None):
@@ -19,6 +19,11 @@ def authentication_key(merchant_id=None, merchant_key=None):
 
 def post(end_point, data={}):
     sitef_response = requests.post(end_point, json=data, headers=headers(), timeout=25)
+    return validate_response(sitef_response)
+
+
+def get(end_point, data={}):
+    sitef_response = requests.get(end_point, json=data, headers=headers(), timeout=25)
     return validate_response(sitef_response)
 
 
@@ -38,4 +43,8 @@ def headers():
 
 
 def error(data):
+    try:
+        data = data.json()
+    except:
+        pass
     raise Exception(data['message'])
