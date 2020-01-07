@@ -1,0 +1,9 @@
+Depois de alterar o que precisar, edita o arquivo sdk.py para editar a versão.
+
+depois roda as linhas:
+python setup.py sdist
+
+depois de buildar:
+twine upload dist/* -r pypi
+
+depois disso adiciona no git e upa o git
