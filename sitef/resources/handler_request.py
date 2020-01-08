@@ -6,6 +6,8 @@ KEYS = {}
 def validate_response(sitef_response):
     if 200 <= sitef_response.status_code < 300:
         return sitef_response.json()
+    elif sitef_response.status_code == 502:
+        raise requests.exceptions.Timeout('timed-out')  # gambiarra sitef
     else:
         return error(sitef_response)
 
@@ -18,17 +20,17 @@ def authentication_key(merchant_id=None, merchant_key=None):
 
 
 def post(end_point, data={}):
-    sitef_response = requests.post(end_point, json=data, headers=headers(), timeout=25)
+    sitef_response = requests.post(end_point, json=data, headers=headers(), timeout=60)
     return validate_response(sitef_response)
 
 
 def get(end_point, data={}):
-    sitef_response = requests.get(end_point, json=data, headers=headers(), timeout=25)
+    sitef_response = requests.get(end_point, json=data, headers=headers(), timeout=60)
     return validate_response(sitef_response)
 
 
 def put(end_point, data={}):
-    sitef_response = requests.put(end_point, json=data, headers=headers(), timeout=25)
+    sitef_response = requests.put(end_point, json=data, headers=headers(), timeout=60)
     return validate_response(sitef_response)
 
 
@@ -45,6 +47,7 @@ def headers():
 def error(data):
     try:
         data = data.json()
+        message = data['message']
     except:
-        pass
-    raise Exception(data['message'])
+        message = str(data)
+    raise Exception(message)
