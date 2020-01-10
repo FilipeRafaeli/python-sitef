@@ -8,7 +8,7 @@ KEYS = {}
 def validate_response(sitef_response):
     if 200 <= sitef_response.status_code < 300:
         return sitef_response.json()
-    elif sitef_response.status_code == 502:
+    elif sitef_response.status_code >= 500:
         raise requests.exceptions.Timeout('timed-out')  # gambiarra sitef
     else:
         return error(sitef_response)
