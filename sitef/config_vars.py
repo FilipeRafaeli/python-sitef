@@ -1,3 +1,5 @@
+from decouple import config
+
 # pagamento pela loja sem juros
 INTEREST_FREE = 4
 
@@ -12,3 +14,6 @@ INTERVALO_BIANUAL = 24
 
 # Número de parcelas
 NUMERO_PARCELAS = '1'
+
+# Timeout do post, put e get
+TIMEOUT_REQUEST = int(config('TIMEOUT_REQUEST_SITEF', default=25))

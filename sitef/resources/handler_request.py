@@ -1,5 +1,7 @@
 import requests
 
+from sitef.config_vars import TIMEOUT_REQUEST
+
 KEYS = {}
 
 
@@ -20,17 +22,17 @@ def authentication_key(merchant_id=None, merchant_key=None):
 
 
 def post(end_point, data={}):
-    sitef_response = requests.post(end_point, json=data, headers=headers(), timeout=60)
+    sitef_response = requests.post(end_point, json=data, headers=headers(), timeout=TIMEOUT_REQUEST)
     return validate_response(sitef_response)
 
 
 def get(end_point, data={}):
-    sitef_response = requests.get(end_point, json=data, headers=headers(), timeout=60)
+    sitef_response = requests.get(end_point, json=data, headers=headers(), timeout=TIMEOUT_REQUEST)
     return validate_response(sitef_response)
 
 
 def put(end_point, data={}):
-    sitef_response = requests.put(end_point, json=data, headers=headers(), timeout=60)
+    sitef_response = requests.put(end_point, json=data, headers=headers(), timeout=TIMEOUT_REQUEST)
     return validate_response(sitef_response)
 
 
